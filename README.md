@@ -1,30 +1,26 @@
 # Webpack TDD Boilerplate
 
-A boilerplate Webpack build with mocha and chai.
+A boilerplate Webpack build using Mocha and Chai.
+
+Bundle JavaScript and compile SCSS out the box.
 
 ## Installation
 
 Download to your project directory.
 
-Enter
+To start, enter:
 
 ```
 npm install
 ```
 
-You need a view NPM modules installed globally
-
-enter
+To run the dev server, enter:
 
 ```
-npm i -g webpack webpack-dev-server
+npm run dev
 ```
 
-To start the dev server, enbter:
-
-```
-npm run test
-```
+index.html will be served from http://localhost:8080/.
 
 To run tests, enter:
 
@@ -32,13 +28,24 @@ To run tests, enter:
 npm run test
 ```
 
+To run a lint, enter:
+```
+npm run lint
+```
+
+When you're ready for production:
+```
+npm run build-production
+```
 
 ## Usage
 
-Get started on a Javascript TDD project:
-
-* Mocha
-* Chai
+* Test with Mocha
+* Assert with Chai
+* Bundle JS files
+* Lint JS files
+* Compile SCSS files
+* Hot reload
 
 ## Support
 
