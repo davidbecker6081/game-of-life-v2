@@ -12,6 +12,27 @@ Enter
 npm install
 ```
 
+You need a view NPM modules installed globally
+
+enter
+
+```
+npm i -g webpack webpack-dev-server
+```
+
+To start the dev server, enbter:
+
+```
+npm run test
+```
+
+To run tests, enter:
+
+```
+npm run test
+```
+
+
 ## Usage
 
 Get started on a Javascript TDD project:
