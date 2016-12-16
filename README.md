@@ -28,24 +28,19 @@ To run tests, enter:
 npm run test
 ```
 
-To run a lint, enter:
-```
-npm run lint
-```
-
 When you're ready for production:
 ```
-npm run build-production
+npm run build
 ```
 
-## Usage
+## Features
 
-* Test with Mocha
-* Assert with Chai
-* Bundle JS files
-* Lint JS files
-* Compile SCSS files
-* Hot reload
+* Mocha
+* Chai
+* ESLint using Airbnb config
+* Babel
+* Compile SCSS
+* Hot reload with webpack
 
 ## Support
 
