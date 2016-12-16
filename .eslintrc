@@ -1,6 +1,3 @@
 {
-  'extends': 'eslint-config-airbnb',
-  'rules': {
-    'comma-dangle': ['error', 'never']
-  }
+  'extends': 'eslint-config-airbnb'
 }

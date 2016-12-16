@@ -6,8 +6,10 @@
   "scripts": {
     "dev": "./node_modules/.bin/webpack-dev-server --content-base dist",
     "build-production": "./node_modules/.bin/webpack production",
-    "lint": "./node_modules/.bin/eslint src",
-    "test": "./node_modules/.bin/mocha test/*"
+    "lint": "eslint src test",
+    "lint:fix": "npm run lint -- --fix",
+    "test": "npm run lint && npm run test-unit",
+    "test-unit": "mocha test/unit --recursive --require ./test/unit/.setup.js"
   },
   "repository": {
     "type": "git",
