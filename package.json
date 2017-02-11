@@ -4,6 +4,7 @@
   "description": "A boilerplate Webpack build with mocha and chai.",
   "main": "src/js/main.js",
   "scripts": {
+    "build": "NODE_ENV=production webpack --config build/webpack.production.config",
     "lint": "eslint src test build",
     "lint:fix": "npm run lint -- --fix",
     "dev": "NODE_ENV=development node build/dev-server.js",
@@ -27,7 +28,7 @@
     "eslint-plugin-import": "^2.2.0",
     "eslint-plugin-jsx-a11y": "^2.2.3",
     "eslint-plugin-react": "^6.8.0",
-    "extract-text-webpack-plugin": "^1.0.1",
+    "extract-text-webpack-plugin": "^2.0.0-rc.3",
     "html-webpack-plugin": "^2.28.0",
     "mocha": "^3.0.2",
     "node-sass": "^4.5.0",
