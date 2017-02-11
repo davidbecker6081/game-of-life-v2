@@ -37,7 +37,7 @@ npm run build
 
 * Mocha
 * Chai
-* ESLint using Airbnb config
+* eslint using Airbnb config
 * Babel
 * Compile SCSS
 * Hot reload with webpack
