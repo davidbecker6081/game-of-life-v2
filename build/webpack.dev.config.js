@@ -3,6 +3,7 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
+
 const src = path.resolve(__dirname, '../src/');
 const dist = path.resolve(__dirname, '../dist/');
 
@@ -32,6 +33,10 @@ module.exports = {
       {
         test: /\.json?$/,
         loader: 'json-loader',
+      },
+      {
+        test: /\.node$/,
+        use: 'node-loader',
       },
       {
         test: /\.scss$/,

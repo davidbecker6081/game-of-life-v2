@@ -45,13 +45,13 @@ module.exports = {
   },
 
   plugins: [
-      new webpack.LoaderOptionsPlugin({
-          options: {
-              postcss: [
-                  autoprefixer(),
-              ]
-          }
-      }),
+    new webpack.LoaderOptionsPlugin({
+      options: {
+        postcss: [
+          autoprefixer(),
+        ],
+      },
+    }),
     new webpack.optimize.UglifyJsPlugin({
       compress: {
         warnings: false,
