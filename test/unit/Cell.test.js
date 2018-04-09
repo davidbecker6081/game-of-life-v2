@@ -3,21 +3,12 @@ const CellLocation = require('../../src/modules/CellLocation.js');
 const Canvas = require('canvas');
 
 describe('Cell', () => {
-  // const canvas = {
-  //   height: 500,
-  //   width: 500,
-  // };
-  //
-  // const context = new Object({
-  //   fillStyle: 'red',
-  //   fillRect: () => {},
-  // });
-  //
   let canvas;
   let ctx;
   let mapOfCells;
   let xAxisCells;
   let yAxisCells;
+  let cellSize;
 
   beforeEach(() => {
     canvas = new Canvas(500, 500);
@@ -25,11 +16,12 @@ describe('Cell', () => {
     mapOfCells = [];
     xAxisCells = 50;
     yAxisCells = 50;
+    cellSize = 10;
     for (let i = 0; i < xAxisCells; i++) {
       const temp = [];
       for (let j = 0; j < yAxisCells; j++) {
         const newLocation = new CellLocation(i, j);
-        temp[j] = new Cell(newLocation);
+        temp[j] = new Cell(newLocation, cellSize);
       }
       mapOfCells[i] = temp;
     }

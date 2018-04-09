@@ -1,6 +1,8 @@
-function CellLocation(x, y) {
-  this.x = x;
-  this.y = y;
+class CellLocation {
+  constructor(x, y) {
+    this.x = x;
+    this.y = y;
+  }
 }
 
 module.exports = CellLocation;
