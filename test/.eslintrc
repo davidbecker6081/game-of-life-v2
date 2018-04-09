@@ -5,5 +5,13 @@
   },
   "globals": {
     "expect": true
+  },
+  'rules': {
+    'no-undef': 'off',
+    'max-len': 'off',
+    'no-plusplus': 'off',
+    'no-mixed-operators': 'off',
+    'no-unused-expressions': 'off',
+    'no-param-reassign': 'off'
   }
 }
