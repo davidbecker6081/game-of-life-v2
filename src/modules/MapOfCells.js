@@ -3,20 +3,21 @@ class MapOfCells {
     this.mapOfCells = [];
   }
 
-  intializeMap(Cell) {
+  initializeMap(xAxisCells, yAxisCells, Cell, CellLocation, cellSize) {
     for (let i = 0; i < xAxisCells; i++) {
       const temp = [];
       for (let j = 0; j < yAxisCells; j++) {
-        temp[j] = new Cell(i, j);
+        const currentLocation = new CellLocation(i, j);
+        temp[j] = new Cell(currentLocation, cellSize);
       }
       this.mapOfCells[i] = temp;
     }
   }
 
-  drawMap(xAxisCells, yAxisCells) {
+  drawMap(xAxisCells, yAxisCells, ctx) {
     for (let i = 0; i < xAxisCells; i++) {
       for (let j = 0; j < yAxisCells; j++) {
-        this.mapOfCells[i][j].draw();
+        this.mapOfCells[i][j].draw(ctx);
       }
     }
   }

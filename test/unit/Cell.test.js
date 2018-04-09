@@ -1,5 +1,6 @@
 const Cell = require('../../src/modules/Cell.js');
 const CellLocation = require('../../src/modules/CellLocation.js');
+const MapOfCells = require('../../src/modules/MapOfCells.js');
 const Canvas = require('canvas');
 
 describe('Cell', () => {
@@ -13,23 +14,12 @@ describe('Cell', () => {
   beforeEach(() => {
     canvas = new Canvas(500, 500);
     ctx = canvas.getContext('2d');
-    mapOfCells = [];
+    mapOfCells = new MapOfCells();
     xAxisCells = 50;
     yAxisCells = 50;
     cellSize = 10;
-    for (let i = 0; i < xAxisCells; i++) {
-      const temp = [];
-      for (let j = 0; j < yAxisCells; j++) {
-        const newLocation = new CellLocation(i, j);
-        temp[j] = new Cell(newLocation, cellSize);
-      }
-      mapOfCells[i] = temp;
-    }
-    for (let i = 0; i < xAxisCells; i++) {
-      for (let j = 0; j < yAxisCells; j++) {
-        mapOfCells[i][j].draw(ctx);
-      }
-    }
+    mapOfCells.initializeMap(xAxisCells, yAxisCells, Cell, CellLocation, cellSize);
+    mapOfCells.drawMap(ctx);
   });
 
   it('should exist', () => {
@@ -40,6 +30,6 @@ describe('Cell', () => {
     const locationOfCell = new CellLocation(1, 1);
     const newCell = new Cell(locationOfCell);
     expect(newCell.location).to.equal(locationOfCell);
-    ctx.fillStyle = '#50C878';
   });
+
 });
