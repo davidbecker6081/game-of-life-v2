@@ -8,7 +8,7 @@ class Cell {
 
   draw(ctx) {
     ctx.beginPath();
-    ctx.rect(this.x * this.size, this.y * this.size, this.size, this.size);
+    ctx.rect(this.location.x * this.size, this.location.y * this.size, this.size, this.size);
     ctx.strokeStyle = '#c0c3c5';
     ctx.stroke();
     ctx.closePath();
@@ -18,33 +18,33 @@ class Cell {
     } else {
       ctx.fillStyle = '#f3f3f3';
     }
-    ctx.fillRect(this.x * this.size, this.y * this.size, this.size, this.size);
+    ctx.fillRect(this.location.x * this.size, this.location.y * this.size, this.size, this.size);
     ctx.stroke();
   }
 
-  getNeighbors(mapOfCells) {
-    if (this.x > 0 && mapOfCells[this.x - 1][this.y].isAlive) {
+  getNeighbors(mapOfCells, xAxisCells, yAxisCells) {
+    if (this.location.x > 0 && mapOfCells[this.location.x - 1][this.location.y].isAlive) {
       this.neighbors++;
     }
-    if (this.x < xAxisCells - 1 && mapOfCells[this.x + 1][this.y].isAlive) {
+    if (this.location.x < xAxisCells - 1 && mapOfCells[this.location.x + 1][this.location.y].isAlive) {
       this.neighbors++;
     }
-    if (this.y < yAxisCells - 1 && mapOfCells[this.x][this.y + 1].isAlive) {
+    if (this.location.y < yAxisCells - 1 && mapOfCells[this.location.x][this.location.y + 1].isAlive) {
       this.neighbors++;
     }
-    if (this.y > 0 && mapOfCells[this.x][this.y - 1].isAlive) {
+    if (this.location.y > 0 && mapOfCells[this.location.x][this.location.y - 1].isAlive) {
       this.neighbors++;
     }
-    if (this.x > 0 && this.y > 0 && mapOfCells[this.x - 1][this.y - 1].isAlive) {
+    if (this.location.x > 0 && this.location.y > 0 && mapOfCells[this.location.x - 1][this.location.y - 1].isAlive) {
       this.neighbors++;
     }
-    if (this.x < xAxisCells - 1 && this.y > 0 && mapOfCells[this.x + 1][this.y - 1].isAlive) {
+    if (this.location.x < xAxisCells - 1 && this.location.y > 0 && mapOfCells[this.location.x + 1][this.location.y - 1].isAlive) {
       this.neighbors++;
     }
-    if (this.y < yAxisCells - 1 && this.x > 0 && mapOfCells[this.x - 1][this.y + 1].isAlive) {
+    if (this.location.y < yAxisCells - 1 && this.location.x > 0 && mapOfCells[this.location.x - 1][this.location.y + 1].isAlive) {
       this.neighbors++;
     }
-    if (this.x < xAxisCells - 1 && this.y < yAxisCells - 1 && mapOfCells[this.x + 1][this.y + 1].isAlive) {
+    if (this.location.x < xAxisCells - 1 && this.location.y < yAxisCells - 1 && mapOfCells[this.location.x + 1][this.location.y + 1].isAlive) {
       this.neighbors++;
     }
   }
