@@ -33,7 +33,7 @@ describe('Cell', () => {
     expect(newCell.isAlive).to.equal(false);
   });
   it('should start with 0 neighbors', () => {
-    expect(newCell.neighbors).to.equal(0);
+    expect(newCell.location.neighbors).to.equal(0);
   });
   describe('Neighbors', () => {
     beforeEach(() => {
@@ -45,52 +45,52 @@ describe('Cell', () => {
       describe('Cardinal Direcions', () => {
         it('should add a neighbor if cell is alive to the West', () => {
           board.mapOfCells[0][1].isAlive = true;
-          newCell.getNeighbors(board.mapOfCells, xAxisCells, yAxisCells);
-          expect(newCell.neighbors).to.equal(1);
+          newCell.location.getNeighbors(board.mapOfCells, xAxisCells, yAxisCells);
+          expect(newCell.location.neighbors).to.equal(1);
         });
         it('should add a neighbor if cell is alive to the North', () => {
           board.mapOfCells[1][0].isAlive = true;
-          newCell.getNeighbors(board.mapOfCells, xAxisCells, yAxisCells);
-          expect(newCell.neighbors).to.equal(1);
+          newCell.location.getNeighbors(board.mapOfCells, xAxisCells, yAxisCells);
+          expect(newCell.location.neighbors).to.equal(1);
         });
         it('should add a neighbor if cell is alive to the East', () => {
           board.mapOfCells[2][1].isAlive = true;
-          newCell.getNeighbors(board.mapOfCells, xAxisCells, yAxisCells);
-          expect(newCell.neighbors).to.equal(1);
+          newCell.location.getNeighbors(board.mapOfCells, xAxisCells, yAxisCells);
+          expect(newCell.location.neighbors).to.equal(1);
         });
         it('should add a neighbor if cell is alive to the South', () => {
           board.mapOfCells[1][2].isAlive = true;
-          newCell.getNeighbors(board.mapOfCells, xAxisCells, yAxisCells);
-          expect(newCell.neighbors).to.equal(1);
+          newCell.location.getNeighbors(board.mapOfCells, xAxisCells, yAxisCells);
+          expect(newCell.location.neighbors).to.equal(1);
         });
       });
       describe('Primary InterCardinal Directions', () => {
         it('should add a neighbor if cell is alive to the NorthWest', () => {
           board.mapOfCells[0][0].isAlive = true;
-          newCell.getNeighbors(board.mapOfCells, xAxisCells, yAxisCells);
-          expect(newCell.neighbors).to.equal(1);
+          newCell.location.getNeighbors(board.mapOfCells, xAxisCells, yAxisCells);
+          expect(newCell.location.neighbors).to.equal(1);
         });
         it('should add a neighbor if cell is alive to the NorthEast', () => {
           board.mapOfCells[2][0].isAlive = true;
-          newCell.getNeighbors(board.mapOfCells, xAxisCells, yAxisCells);
-          expect(newCell.neighbors).to.equal(1);
+          newCell.location.getNeighbors(board.mapOfCells, xAxisCells, yAxisCells);
+          expect(newCell.location.neighbors).to.equal(1);
         });
         it('should add a neighbor if cell is alive to the SouthEast', () => {
           board.mapOfCells[2][2].isAlive = true;
-          newCell.getNeighbors(board.mapOfCells, xAxisCells, yAxisCells);
-          expect(newCell.neighbors).to.equal(1);
+          newCell.location.getNeighbors(board.mapOfCells, xAxisCells, yAxisCells);
+          expect(newCell.location.neighbors).to.equal(1);
         });
         it('should add a neighbor if cell is alive to the SouthWest', () => {
           board.mapOfCells[0][2].isAlive = true;
-          newCell.getNeighbors(board.mapOfCells, xAxisCells, yAxisCells);
-          expect(newCell.neighbors).to.equal(1);
+          newCell.location.getNeighbors(board.mapOfCells, xAxisCells, yAxisCells);
+          expect(newCell.location.neighbors).to.equal(1);
         });
       });
     });
     describe('Do not add a neighbor', () => {
       it('should not add a neighbor if no cells are alive around the initial cell', () => {
-        newCell.getNeighbors(board.mapOfCells, xAxisCells, yAxisCells);
-        expect(newCell.neighbors).to.equal(0);
+        newCell.location.getNeighbors(board.mapOfCells, xAxisCells, yAxisCells);
+        expect(newCell.location.neighbors).to.equal(0);
       });
     });
   });
