@@ -37,8 +37,7 @@ describe('Cell', () => {
   });
   describe('Neighbors', () => {
     beforeEach(() => {
-      board = new MapOfCells();
-      board.initializeMap(xAxisCells, yAxisCells, Cell, CellLocation, cellSize);
+      board = new MapOfCells('empty', xAxisCells, yAxisCells, Cell, CellLocation, cellSize);
     });
 
     describe('Add a neighbor', () => {
