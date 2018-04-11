@@ -2,7 +2,18 @@ class MapOfCells {
   constructor(state, xAxisCells, yAxisCells, Cell, CellLocation, cellSize) {
     this.empty = state === 'empty';
     this.generation = 0;
-    this.mapOfCells = state === 'empty' ? this.initializeEmptyMap(state, xAxisCells, yAxisCells, Cell, CellLocation, cellSize) : state;
+    this.initEmpty = () => {
+      for (let i = 0; i < xAxisCells; i++) {
+        const temp = [];
+        for (let j = 0; j < yAxisCells; j++) {
+          const currentLocation = new CellLocation(i, j);
+          temp[j] = new Cell(currentLocation, cellSize);
+        }
+        this.mapOfCells[i] = temp;
+      }
+    };
+    this.mapOfCells = [];
+    state === 'empty' ? this.initEmpty() : state;
   }
 
   initializeEmptyMap(xAxisCells, yAxisCells, Cell, CellLocation, cellSize) {
@@ -55,7 +66,7 @@ class MapOfCells {
     for (let i = 0; i < xAxisCells; i++) {
       for (let j = 0; j < yAxisCells; j++) {
         const cell = this.mapOfCells[i][j];
-        cell.location.getNeighbors();
+        cell.location.getNeighbors(this.mapOfCells, xAxisCells, yAxisCells);
         const { neighbors } = cell.location;
         if (neighbors < 2) {
           tempMap[i][j].isAlive = false;
