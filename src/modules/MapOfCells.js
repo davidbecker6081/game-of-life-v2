@@ -85,6 +85,25 @@ class MapOfCells {
 
     this.mapOfCells = tempMap;
   }
+
+  animate() {
+    const fps = 10;
+    const now = Date.now();
+    let then = Date.now();
+    const speed = 1000 / fps;
+    const delta = now - then;
+
+    requestAnimationFrame(animate);
+
+    if (delta > speed) {
+      then = now - (delta % speed);
+      if (this.isAutomate) {
+        this.applyRules();
+      }
+
+      this.drawMap();
+    }
+  }
 }
 
 module.exports = MapOfCells;
