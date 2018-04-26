@@ -21,10 +21,31 @@ describe('MapOfCells--THE WORLD', () => {
   it('should stay empty after after a generation tick if already empty', () => {
     const state = 'empty';
     board = new MapOfCells(state, xAxisCells, yAxisCells, Cell, CellLocation, cellSize);
-    board.checkMapForAliveCells();
+    board.initializeEmptyMap(xAxisCells, yAxisCells, Cell, CellLocation, cellSize);
+    board.checkMapForAliveCells(xAxisCells, yAxisCells);
     expect(board.empty).to.equal(true);
     expect(board.generation).to.equal(0);
     board.tickGeneration(xAxisCells, yAxisCells, Cell);
+    expect(board.generation).to.equal(1);
+    expect(board.empty).to.equal(true);
+  });
+  it('should not initialize an empty map if state is not empty', () => {
+    const state = 'not empty';
+    board = new MapOfCells(state, xAxisCells, yAxisCells, Cell, CellLocation, cellSize);
+    board.initializeEmptyMap(xAxisCells, yAxisCells, Cell, CellLocation, cellSize);
+    board.checkMapForAliveCells(xAxisCells, yAxisCells);
+    expect(board.empty).to.equal(true);
+    expect(board.generation).to.equal(0);
+  });
+  it('should apply rules every generation tick', () => {
+    const state = 'empty';
+    board = new MapOfCells(state, xAxisCells, yAxisCells, Cell, CellLocation, cellSize);
+    board.initializeEmptyMap(xAxisCells, yAxisCells, Cell, CellLocation, cellSize);
+    board.mapOfCells[1][1].isAlive = true;
+    board.checkMapForAliveCells(xAxisCells, yAxisCells);
+    expect(board.empty).to.equal(false);
+    expect(board.generation).to.equal(0);
+    board.tickGeneration();
     expect(board.generation).to.equal(1);
     expect(board.empty).to.equal(true);
   });

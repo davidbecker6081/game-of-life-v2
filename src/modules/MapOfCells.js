@@ -37,10 +37,10 @@ class MapOfCells {
 
   checkMapForAliveCells(xAxisCells, yAxisCells) {
     for (let i = 0; i < xAxisCells; i++) {
-      for (let j = 0; i < yAxisCells; j++) {
+      for (let j = 0; j < yAxisCells; j++) {
         if (this.mapOfCells[i][j].isAlive) {
           this.empty = false;
-          break;
+          return;
         }
       }
     }
@@ -49,6 +49,7 @@ class MapOfCells {
 
   tickGeneration(xAxisCells, yAxisCells, Cell) {
     this.applyRules(xAxisCells, yAxisCells, Cell);
+    this.checkMapForAliveCells(xAxisCells, yAxisCells);
     this.generation++;
   }
 
